@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for student in students %}
+        {% if forloop.first %}
+            <li style="color:red">{{ student.s_name }}</li>
+            {% else %}
+            <li>{{ student.s_name }}</li>
+        {% endif %}
+
+    {% endfor %}
+
+    <hr>
+    <h3>{{ student_dict.hobby }}</h3>
+
+    <hr>
+
+    {% for student in students %}
+        {% if forloop.counter|divisibleby:2 %}
+            <li style="color:orangered">{{ student.s_name }}</li>
+            {% else %}
+            <li style="color:greenyellow">{{ student.s_name }}</li>
+        {% endif %}
+    {% endfor %}
+
+    <hr>
+
+    {% for student in students %}
+        {% ifequal forloop.counter 5 %}
+            <li style="color:red">{{ student.s_name }}</li>
+            {% else %}
+            <li style="color:greenyellow">{{ student.s_name }}</li>
+        {% endifequal %}
+    {% endfor %}
+
+    <hr>
+
+    <p>{{ code|safe }}</p>
+
+
+</body>
+</html>
